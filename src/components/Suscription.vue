@@ -35,8 +35,9 @@ form {
 
 .input {
   min-height: 50px;
-  max-width: 850px !important;
-  padding: 0 2rem;
+  max-width: 550px !important;
+    width: 300px !important;
+  padding: 0 1rem;
   color: #fff;
   font-size: 15px;
   border: 1px solid #52cffe;
@@ -50,7 +51,7 @@ form {
   border: none;
   border-radius: 0 6px 6px 0;
   background-color: #52cffe !important;
-  color: #fff;
+  color: #1F2020;
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
