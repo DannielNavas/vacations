@@ -1,33 +1,49 @@
 <template>
-    <form @submit.prevent="onSubmit">
-        <div class="input-group">
-            <input type="email" class="input" id="Email" name="Email" placeholder="jhondoe@email.com" autocomplete="off" v-model="emailUser">
-            <input class="button--submit" value="Subscribe" type="submit">
-        </div>
-    </form>
+  <form @submit.prevent="onSubmit">
+    <div class="input-group">
+      <input type="email" class="input" id="Email" name="Email" placeholder="jhondoe@email.com" autocomplete="off"
+        v-model="emailUser">
+      <input class="button--submit" value="Subscribe" type="submit">
+    </div>
+  </form>
+  <p style="color: red">{{ message }}</p>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
 const emailUser = ref('');
-const onSubmit = (event) => {
-    console.log(emailUser.value);
+let message = ref('');
+const onSubmit = async(event) => {
+  console.log(emailUser.value);
+  const data = await fetch('http://127.0.0.1:3001/subscribe', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email: emailUser.value })
+  });
+
+  const response = await data.json();
+
+  message = response.message;
+  console.log(message)
+  alert(message);
 }
 
 
 </script>
 
 <style>
-
 form {
-    margin-top: 32px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
+
 .input-group {
   display: flex;
   align-items: center;
@@ -36,13 +52,14 @@ form {
 .input {
   min-height: 50px;
   max-width: 550px !important;
-    width: 300px !important;
+  width: 100% !important;
   padding: 0 1rem;
   color: #fff;
   font-size: 15px;
   border: 1px solid #52cffe;
   border-radius: 6px 0 0 6px;
   background-color: transparent;
+  min-width: 250px;
 }
 
 .button--submit {
@@ -62,10 +79,9 @@ form {
   background-color: #52cffe;
 }
 
-.input:focus, .input:focus-visible {
+.input:focus,
+.input:focus-visible {
   border-color: #3898EC;
   outline: none;
 }
-
-
 </style>
