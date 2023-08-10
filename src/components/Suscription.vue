@@ -16,7 +16,7 @@ const emailUser = ref('');
 let message = ref('');
 const onSubmit = async(event) => {
   console.log(emailUser.value);
-  const data = await fetch('http://127.0.0.1:3001/subscribe', {
+  const data = await fetch('https://alert-blue-toad.cyclic.app/subscribe', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
