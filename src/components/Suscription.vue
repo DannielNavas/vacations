@@ -10,11 +10,12 @@
 </template>
 
 <script setup>
+import confetti from 'canvas-confetti';
 import { ref } from 'vue';
 
 const emailUser = ref('');
 let message = ref('');
-const onSubmit = async(event) => {
+const onSubmit = async() => {
   console.log(emailUser.value);
   const data = await fetch('https://alert-blue-toad.cyclic.app/subscribe', {
     method: 'POST',
@@ -23,12 +24,18 @@ const onSubmit = async(event) => {
     },
     body: JSON.stringify({ email: emailUser.value })
   });
-
   const response = await data.json();
-
-  message = response.message;
-  console.log(message)
-  alert(message);
+  message = response?.message ?? 'we will be sending you the progress of our platform ';
+  if (!response.message) {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: {
+        y: 0.6
+      }
+    });
+  }
+  // alert(message);
 }
 
 
