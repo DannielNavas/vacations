@@ -35,7 +35,7 @@ const onSubmit = async() => {
       }
     });
   }
-  // alert(message);
+  alert(message);
 }
 
 
