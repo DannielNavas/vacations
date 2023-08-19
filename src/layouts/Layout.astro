@@ -1,6 +1,6 @@
 ---
 export interface Props {
-    title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,24 +8,47 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Danniel Navas" />
+    <meta name="copyright" content="Danniel Navas" />
+    <meta name="application-name" content="Danniel Navas" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#232323" />
+    <meta name="msapplication-TileColor" content="#232323" />
+    <meta name="theme-color" content="#232323" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta
+      name="description"
+      content="Unlock Your Perfect Getaway with AI-Powered Vacation Planning! Plan Your Dream Vacation effortlessly by simply entering your destination and travel dates. Our cutting-edge Artificial Intelligence technology curates a personalized travel itinerary tailored to your preferences. Experience hassle-free vacation planning like never before, and embark on unforgettable journeys with confidence. Your ideal vacation is just a few clicks away!"
+    />
+    <meta
+      name="keywords"
+      content="AI-powered vacation planning, personalized travel itinerary, hassle-free travel planning, dream vacation, artificial intelligence travel planner, seamless getaway planning, customized trip itinerary, effortless holiday planning"
+    />
+    <meta name="author" content="Danniel Navas" />
+    <meta name="copyright" content="Danniel Navas" />
+    <meta name="application-name" content="Tripix" />
     <title>{title}</title>
-</head>
-<body>
+  </head>
+  <body>
     <slot />
-</body>
+  </body>
 </html>
 
 <style is:global>
-	html {
-		background-color: #232323;
-	}
-	body {
-		margin: 0;
-		padding: 0;
-		height: 100vh;
-	}
+  html {
+    background-color: #232323;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
 </style>

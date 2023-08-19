@@ -4,6 +4,7 @@ import Suscription from "./Suscription.vue";
 
 <section class="primary">
     <div class="information">
+        <img src="/vacations.png" alt="vacations" >
         <h1>Easily plan your next vacation </h1>
         <h2>Empower Your Journey, Let AI Create Your <span>Tripix</span>
         <Suscription client:load />
@@ -22,7 +23,9 @@ import Suscription from "./Suscription.vue";
         height: auto;
         max-width: 861px;
         width: 100%;
-        text-align: center;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
     }
 
     h1 {
