@@ -15,9 +15,9 @@ import { ref } from 'vue';
 
 const emailUser = ref('');
 let message = ref('');
-const onSubmit = async() => {
+const onSubmit = async () => {
   console.log(emailUser.value);
-  const data = await fetch('https://alert-blue-toad.cyclic.app/subscribe', {
+  const data = await fetch('https://vacations-back.vercel.app/subscribe', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
